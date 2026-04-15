@@ -1,4 +1,4 @@
-# Tickr ??
+ï»¿# Tickr
 
 A tiny, always-on desktop timer that lives on your screen.
 
@@ -7,7 +7,7 @@ Built with a simple idea:
 
 ---
 
-## ? What is Tickr?
+## What is Tickr?
 
 Tickr is a minimal ambient timer designed to stay visible while you work.
 
@@ -22,7 +22,7 @@ It is a **tiny companion that keeps you accountable.**
 
 ---
 
-## ?? Why this exists
+## Why this exists
 
 I juggle multiple things constantly and kept missing timers.
 So instead of opening tabs and switching contexts, I built something that simply stays visible.
@@ -31,7 +31,7 @@ No friction. No switching. Just focus.
 
 ---
 
-## ?? Features
+## Features
 
 - ? Countdown timer (MM:SS)
 - ?? Scrolling task display (LCD-style)
@@ -43,7 +43,7 @@ No friction. No switching. Just focus.
 
 ---
 
-## ?? Commands
+## Commands
 
 Click the moving LCD task text in running mode, type a command, then press `Enter`.
 
@@ -67,7 +67,7 @@ Examples:
 
 ---
 
-## ?? Tech Stack
+## Tech Stack
 
 - Tauri (Rust + WebView)
 - HTML
@@ -76,7 +76,7 @@ Examples:
 
 ---
 
-## ?? Getting Started
+## Getting Started
 
 ### 1. Clone the repo
 
@@ -99,7 +99,7 @@ npm run tauri dev
 
 ---
 
-## ?? Build
+## Build
 
 ```bash
 npm run tauri build
@@ -112,7 +112,7 @@ Build artifacts are generated under:
 
 ---
 
-## ?? Journey + Screenshots
+## Journey + Screenshots
 
 1. Open setup window
 2. Enter task + duration + placement
@@ -133,7 +133,7 @@ Build artifacts are generated under:
 
 ---
 
-## ?? Contributing
+## Contributing
 
 Contributions are welcome:
 
@@ -146,7 +146,7 @@ See `CONTRIBUTING.md`.
 
 ---
 
-## ?? Future Ideas
+## Future Ideas
 
 - Multiple parallel timers
 - Command palette mode
@@ -157,7 +157,7 @@ See `CONTRIBUTING.md`.
 
 ---
 
-## ?? Open Source
+## Open Source
 
 Licensed under the **MIT License**. See `LICENSE`.
 
@@ -165,7 +165,7 @@ Font attribution and license notes: `FONT_LICENSES.md`.
 
 ---
 
-## ? Support
+## Support
 
 If you like this project:
 
@@ -175,10 +175,10 @@ If you like this project:
 
 ---
 
-## ?? Author
+## Author
 
 Built by **Naseer Ahmed**  
-Exploring design × code × ideas.
+Exploring design ï¿½ code ï¿½ ideas.
 
 ---
 
