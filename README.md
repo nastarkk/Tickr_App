@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-# Tickr_App
+﻿# Tickr_App
 A minimal desktop cross-platform ambient focus timer built with Tauri + Vanilla JS, featuring LCD-style command controls and break mode.
 =======
 # Tickr (Tauri)
@@ -51,4 +50,3 @@ npm run tauri build
 - License: MIT (see `LICENSE`)
 - Contribution guide: `CONTRIBUTING.md`
 - Font attributions/licenses: `FONT_LICENSES.md`
->>>>>>> 4b40794 (Open source release v1.0)
