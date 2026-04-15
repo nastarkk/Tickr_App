@@ -1,4 +1,4 @@
-﻿# Tickr
+# Tickr
 
 A tiny, always-on desktop timer that lives on your screen.
 
@@ -99,11 +99,23 @@ npm run tauri dev
 
 ---
 
+## Download
+
+Installers are available here:  
+https://github.com/nastarkk/Tickr_App/releases/tag/v0.1.0
+
+- Windows: `.msi`
+- macOS: `.dmg`
+
+---
+
 ## Build
 
 ```bash
 npm run tauri build
 ```
+
+For installation steps and warning bypass instructions, see `Install-Tickr.md`.
 
 Build artifacts are generated under:
 
@@ -178,7 +190,7 @@ If you like this project:
 ## Author
 
 Built by **Naseer Ahmed**  
-Exploring design � code � ideas.
+Exploring design ? code ? ideas.
 
 ---
 

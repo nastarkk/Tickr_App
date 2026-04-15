@@ -86,17 +86,23 @@ fn open_running_window(app: tauri::AppHandle, window: Window, task: String, minu
       println!("building running window");
 
       let build_result = match url {
-        Ok(url) => WindowBuilder::new(&app_handle, label, url)
-          .inner_size(RUNNING_WIDTH, RUNNING_HEIGHT)
-          .position(x, y)
-          .resizable(false)
-          .decorations(false)
-          .always_on_top(true)
-          .skip_taskbar(false)
-          .transparent(true)
-          .focused(true)
-          .build()
-          .map_err(|e| format!("open_running_window build error: {}", e)),
+        Ok(url) => {
+          let builder = WindowBuilder::new(&app_handle, label, url)
+            .inner_size(RUNNING_WIDTH, RUNNING_HEIGHT)
+            .position(x, y)
+            .resizable(false)
+            .decorations(false)
+            .always_on_top(true)
+            .skip_taskbar(false)
+            .focused(true);
+
+          #[cfg(target_os = "windows")]
+          let builder = builder.transparent(true);
+
+          builder
+            .build()
+            .map_err(|e| format!("open_running_window build error: {}", e))
+        }
         Err(err) => Err(err)
       };
 

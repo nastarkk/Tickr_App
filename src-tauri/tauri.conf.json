@@ -40,12 +40,14 @@
     "bundle": {
       "active": true,
       "targets": [
-        "msi"
+        "msi",
+        "dmg"
       ],
       "identifier": "com.tickr.app",
       "icon": [
         "icons/icon.png",
-        "icons/icon.ico"
+        "icons/icon.ico",
+        "icons/icon.icns"
       ],
       "windows": {
         "nsis": {

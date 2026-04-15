@@ -4,6 +4,11 @@ const appWindow = tauriWindow?.appWindow ?? tauriWindow?.getCurrent?.() ?? null;
 const tauriInvoke = tauriRoot?.invoke ?? tauriRoot?.tauri?.invoke ?? null;
 const WebviewWindow = tauriWindow?.WebviewWindow ?? null;
 const query = new URLSearchParams(window.location.search);
+const isMacOs = /mac/i.test(navigator.platform || "") || /mac os/i.test(navigator.userAgent || "");
+
+if (isMacOs) {
+  document.documentElement.classList.add("os-macos");
+}
 
 const widgetRoot = document.getElementById("widgetRoot");
 const setupView = document.getElementById("setupView");
@@ -958,7 +963,6 @@ async function startSession() {
   await setWindowForRunningMode();
   const target = getPlacementLogicalPosition(state.placement);
   await setPositionLogical(target.x, target.y);
-  startBoundaryGuard();
   startCountdown();
 }
 
@@ -1113,7 +1117,6 @@ window.addEventListener("DOMContentLoaded", async () => {
     await setWindowForRunningMode();
     const target = getPlacementLogicalPosition(state.placement);
     await setPositionLogical(target.x, target.y);
-    startBoundaryGuard();
     startCountdown();
   } else {
     showSetupMode();

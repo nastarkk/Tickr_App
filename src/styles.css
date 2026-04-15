@@ -41,6 +41,11 @@ body {
   color: #ced2d9;
 }
 
+html.os-macos,
+html.os-macos body {
+  background: #151619;
+}
+
 .widget {
   width: 100%;
   height: 100%;
@@ -58,6 +63,14 @@ body {
   background: #0f121a;
   border-radius: 12px;
   overflow: hidden;
+}
+
+html.os-macos .widget.mode-setup,
+html.os-macos .setup-view,
+html.os-macos .widget.mode-running,
+html.os-macos .running-view,
+html.os-macos .setup-close {
+  border-radius: 0;
 }
 
 .hidden {
