@@ -1,0 +1,106 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tickr</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="widget mode-setup" id="widgetRoot">
+      <section class="setup-view" id="setupView">
+        <header class="setup-header" id="setupHeader" data-tauri-drag-region>
+          <span class="setup-brand">
+            <img src="./assets/tickr-logo.svg" alt="" aria-hidden="true" />
+            <span>Tickr Setup</span>
+          </span>
+          <button id="setupCloseBtn" class="setup-close" type="button" aria-label="Close app">
+            <svg viewBox="0 0 18 18" aria-hidden="true" focusable="false">
+              <path d="M4.5 4.5L13.5 13.5M13.5 4.5L4.5 13.5" />
+            </svg>
+          </button>
+        </header>
+
+        <main class="setup-main" id="setupMain">
+          <label class="field-label" for="setupTaskInput">&lt;Task Input&gt;</label>
+          <input id="setupTaskInput" class="setup-input" type="text" maxlength="60" placeholder="What are you focusing on?" autocomplete="off" />
+
+          <div class="setup-row">
+            <div class="row-col">
+              <label class="field-label" for="setupMinutesInput">Duration (minutes)</label>
+              <input id="setupMinutesInput" class="setup-input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="20" />
+            </div>
+            <div class="row-col">
+              <label class="field-label">Timer window placement</label>
+              <div class="placement-grid" id="placementGrid">
+                <button class="placement-btn active" type="button" data-placement="bottom-right" title="Bottom Right">
+                  <span class="sr-only">Bottom Right</span>
+                </button>
+                <button class="placement-btn" type="button" data-placement="top-right" title="Top Right">
+                  <span class="sr-only">Top Right</span>
+                </button>
+                <button class="placement-btn" type="button" data-placement="bottom-left" title="Bottom Left">
+                  <span class="sr-only">Bottom Left</span>
+                </button>
+                <button class="placement-btn" type="button" data-placement="top-left" title="Top Left">
+                  <span class="sr-only">Top Left</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <input id="placementInput" type="hidden" value="bottom-right" />
+
+          <button id="setupStartBtn" class="start-btn">:Start Focus Session/</button>
+
+          <div class="helper-block" id="helperText">
+            <div class="helper-card compact" id="helperCard">
+              <button id="helperToggleBtn" class="helper-head helper-head-btn" type="button" aria-label="Toggle help details" aria-expanded="false">
+                <p class="helper-title">HELPFUL COMMANDS DURING RUN</p>
+                <span class="helper-toggle-btn" aria-hidden="true"></span>
+              </button>
+              <div class="helper-cmdline" role="list" aria-label="Helpful commands">
+                <span role="listitem">\PAUSE&gt;</span>
+                <span role="listitem">\RESUME&gt;</span>
+                <span role="listitem">\HALF&gt;</span>
+                <span role="listitem">\RUSH&gt;</span>
+                <span role="listitem">\BREAK N&gt;</span>
+                <span role="listitem">\BACK&gt;</span>
+                <span role="listitem">\+N&gt;</span>
+                <span role="listitem">\-N&gt;</span>
+                <span role="listitem">\RESTART&gt;</span>
+                <span role="listitem">\END&gt;</span>
+              </div>
+              <div class="helper-more" id="helperMore">
+                <div class="helper-divider" aria-hidden="true"></div>
+                <p class="helper-how-title">HOW TO USE COMMANDS?</p>
+                <p class="helper-tip">Click moving task text in running mode, then type commands. More commands incoming...</p>
+                <p class="helper-example"><span>Example:</span> \+5&gt; adds 5 minutes, \-3&gt; removes 3 minutes.</p>
+              </div>
+            </div>
+          </div>
+        </main>
+      </section>
+
+      <section class="running-view hidden" id="runningView">
+        <header class="lcd-strip" id="lcdStrip">
+          <div class="lcd-track" id="lcdTrack">
+            <span class="lcd-text" id="lcdTextA">&lt;NO TASK SELECTED&gt;</span>
+            <span class="lcd-text" id="lcdTextB">&lt;NO TASK SELECTED&gt;</span>
+            <span class="lcd-text" id="lcdTextC">&lt;NO TASK SELECTED&gt;</span>
+          </div>
+          <input id="commandInput" class="command-input hidden" type="text" placeholder="\PAUSE>  \RESUME>  \HALF>  \RUSH>  \BREAK N>  \BACK>  \+N>  \-N>  \RESTART>  \END>" autocomplete="off" />
+          <span id="commandMeasure" class="command-measure" aria-hidden="true"></span>
+          <span id="commandCursor" class="command-cursor hidden" aria-hidden="true"></span>
+        </header>
+
+        <main class="running-main">
+          <div class="timer-card" id="timerCard" aria-hidden="true"></div>
+          <div class="timer-display timer-safe" id="timerDisplay">00:00</div>
+        </main>
+      </section>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,655 @@
+﻿@font-face {
+  font-family: "DM Mono";
+  src: url("./assets/DMMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DM Mono";
+  src: url("./assets/DMMono-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Jersey 25";
+  src: url("./assets/Jersey25-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "VCR OSD Mono";
+  src: url("./assets/VCR_OSD_MONO_1.001.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: transparent;
+  font-family: "DM Mono", monospace;
+  color: #ced2d9;
+}
+
+.widget {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #151619;
+}
+
+.widget.mode-setup {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #151619;
+}
+
+.widget.mode-running {
+  background: #0f121a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.setup-view {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 32px 1fr;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.setup-header {
+  height: 32px;
+  background: #07080b;
+  border-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  font-family: "DM Mono", monospace;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: -0.24px;
+  text-transform: uppercase;
+  color: #ced2d9;
+  cursor: grab;
+}
+
+.setup-header:active {
+  cursor: grabbing;
+}
+
+.setup-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.setup-brand img {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+
+.setup-close {
+  width: 42px;
+  height: 32px;
+  border: 0;
+  outline: none;
+  padding: 0;
+  background: transparent;
+  font-family: "DM Mono", monospace;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: -10px;
+  border-top-right-radius: 16px;
+  transition: background-color 140ms ease;
+}
+
+.setup-close svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.setup-close svg path {
+  stroke: #ced2d9;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+
+.setup-close:hover {
+  background: #151619;
+}
+
+.setup-close:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.setup-main {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow: visible;
+}
+
+.setup-row {
+  display: grid;
+  grid-template-columns: 176px 188px;
+  gap: 16px;
+  align-items: start;
+  margin-top: 16px;
+}
+
+.row-col {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+
+.field-label {
+  font-family: "DM Mono", monospace;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: -0.26px;
+  color: #ced2d9;
+  margin: 0;
+}
+
+.setup-input {
+  width: 100%;
+  border: 1px solid rgba(81, 96, 128, 0.18);
+  outline: none;
+  font-family: "DM Mono", monospace;
+  height: 44px;
+  border-radius: 8px;
+  background: #181b22;
+  color: #ced2d9;
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: -0.28px;
+  transition: background 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.setup-input:focus {
+  border-color: rgba(101, 138, 228, 0.48);
+  box-shadow: 0 0 0 1px rgba(101, 138, 228, 0.22);
+  background: #1b1f28;
+}
+
+.setup-input::placeholder {
+  color: #585b64;
+}
+
+#setupTaskInput {
+  margin-top: 8px;
+}
+
+.placement-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 44px);
+  gap: 4px;
+}
+
+.placement-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: #181b22;
+  border: 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.placement-btn::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 12px;
+  width: 28px;
+  height: 20px;
+  border: 1px solid #585b64;
+  border-radius: 4px;
+}
+
+.placement-btn::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 6px;
+  border-radius: 2px;
+  background: #585b64;
+}
+
+.placement-btn[data-placement="bottom-right"]::after {
+  left: 24px;
+  top: 23px;
+}
+
+.placement-btn[data-placement="top-right"]::after {
+  left: 24px;
+  top: 15px;
+}
+
+.placement-btn[data-placement="bottom-left"]::after {
+  left: 11px;
+  top: 23px;
+}
+
+.placement-btn[data-placement="top-left"]::after {
+  left: 11px;
+  top: 15px;
+}
+
+.placement-btn.active::before {
+  border-color: #d8dce8;
+}
+
+.placement-btn.active::after {
+  background: #d8dce8;
+}
+
+.start-btn {
+  width: 100%;
+  border: 0;
+  outline: none;
+  margin-top: 20px;
+  height: 46px;
+  min-height: 46px;
+  padding: 0 16px;
+  border-radius: 66px;
+  background: #204dd4;
+  color: #ffffff;
+  font-family: "DM Mono", monospace;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: -0.96px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 120ms ease, filter 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset;
+}
+
+.start-btn:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 4px 14px rgba(32, 77, 212, 0.36), 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+  transform: translateY(-1px);
+}
+
+.start-btn:active {
+  transform: translateY(0) scale(0.992);
+  filter: brightness(0.97);
+  box-shadow: 0 1px 4px rgba(32, 77, 212, 0.28) inset;
+}
+
+.helper-block {
+  margin-top: 14px;
+}
+
+.helper-card {
+  width: 100%;
+  background: #191a1c;
+  border: 1px dashed #292b2e;
+  border-radius: 12px;
+  padding: 16px 16px 13px;
+}
+
+.helper-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.helper-head-btn {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.helper-head-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 1px rgba(126, 206, 255, 0.4);
+  border-radius: 6px;
+}
+
+.helper-title {
+  font-family: "DM Mono", monospace;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: -0.36px;
+  color: #ced2d9;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.helper-toggle-btn {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.helper-head-btn .helper-toggle-btn::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 7px solid #ced2d9;
+  transform: rotate(0deg);
+  transform-origin: center;
+  transition: transform 180ms ease;
+}
+
+.helper-head-btn[aria-expanded="false"] .helper-toggle-btn::before {
+  transform: rotate(180deg);
+}
+
+.helper-cmdline {
+  margin: 8px 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px 10px;
+  font-family: "DM Mono", monospace;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: -0.36px;
+  color: #208755;
+  text-transform: uppercase;
+}
+
+.helper-cmdline span {
+  white-space: nowrap;
+}
+
+.helper-more {
+  margin-top: 12px;
+}
+
+.helper-card.compact .helper-more {
+  display: none;
+}
+
+.helper-divider {
+  width: 100%;
+  height: 1px;
+  border-top: 1px dashed #292b2e;
+  background: none;
+  margin: 8px 0 12px;
+}
+
+.helper-how-title {
+  margin: 0 0 8px;
+  font-family: "DM Mono", monospace;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: -0.24px;
+  color: #ced2d9;
+  text-transform: uppercase;
+}
+
+.helper-tip {
+  margin: 0 0 8px;
+  font-family: "DM Mono", monospace;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: -0.24px;
+  color: #72767b;
+}
+
+.helper-example {
+  margin: 0;
+  font-family: "DM Mono", monospace;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: -0.22px;
+  color: #208755;
+}
+
+.helper-example span {
+  color: #ced2d9;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.running-view {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  background: #0f121a;
+}
+
+.lcd-strip {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 24px;
+  overflow: visible;
+  display: block;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  z-index: 10;
+}
+
+.lcd-track {
+  position: absolute;
+  left: 10px;
+  top: 6px;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  white-space: nowrap;
+  padding-left: 0;
+  animation: lcd-scroll 20s linear infinite;
+  font-family: "VCR OSD Mono", monospace;
+  font-size: 12px;
+  line-height: 13px;
+  letter-spacing: -0.36px;
+  text-transform: uppercase;
+  color: #00ff2f;
+  text-shadow: 0 0 10px #09a22a, 0 0 16px rgba(9, 162, 42, 0.55);
+  filter: brightness(1.08);
+  cursor: text;
+}
+
+.command-input {
+  position: absolute;
+  inset: 2px 6px;
+  height: 20px;
+  border-radius: 0;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  color: #00ff2f;
+  font-family: "VCR OSD Mono", monospace;
+  font-size: 11px;
+  line-height: 20px;
+  padding: 0 8px;
+  caret-color: transparent;
+  text-shadow: 0 0 4px #09a22a;
+}
+
+.command-input:focus,
+.command-input:focus-visible {
+  border: 0;
+  outline: none;
+  box-shadow: none;
+}
+
+.command-input::placeholder {
+  color: rgba(0, 255, 47, 0.58);
+  text-shadow: 0 0 4px rgba(9, 162, 42, 0.55);
+}
+
+.command-measure {
+  position: absolute;
+  left: 14px;
+  top: 2px;
+  height: 20px;
+  white-space: pre;
+  visibility: hidden;
+  pointer-events: none;
+  font-family: "VCR OSD Mono", monospace;
+  font-size: 11px;
+  line-height: 20px;
+  letter-spacing: normal;
+}
+
+.command-cursor {
+  position: absolute;
+  top: 5px;
+  width: 5px;
+  height: 14px;
+  border-radius: 1px;
+  background: #00ff2f;
+  box-shadow: 0 0 6px rgba(9, 162, 42, 0.9);
+  pointer-events: none;
+  animation: cursor-blink 1s steps(1, end) infinite;
+}
+
+.running-main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.timer-card {
+  position: absolute;
+  left: 1px;
+  top: 24px;
+  width: 126px;
+  height: 64px;
+  box-sizing: border-box;
+  background: linear-gradient(181.92deg, #252c3a 50.46%, #151921 98.06%);
+  border: 0.3px solid #222b3a;
+  border-radius: 12px;
+  z-index: 1;
+}
+
+.timer-display {
+  position: absolute;
+  left: 1px;
+  top: 24px;
+  width: 126px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+  font-family: "Jersey 25";
+  font-size: 60px;
+  line-height: 44px;
+  letter-spacing: -3.36px;
+  color: transparent;
+  text-shadow: none;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(to bottom, #ffffff 0%, #8996b2 100%);
+}
+
+.timer-safe {
+  background-image: linear-gradient(to bottom, #ffffff 0%, #8996b2 100%);
+  text-shadow: none;
+}
+
+.timer-danger {
+  background-image: linear-gradient(to bottom, #ff7c7c 0%, #bd1c1f 100%);
+  text-shadow: 0 0 8px rgba(189, 28, 31, 0.35);
+}
+
+@keyframes lcd-scroll {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-66.666%);
+  }
+}
+
+@keyframes lcd-scroll-once {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes helper-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cursor-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}

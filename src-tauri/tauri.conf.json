@@ -1,0 +1,60 @@
+{
+  "$schema": "https://schema.tauri.app/config/1",
+  "build": {
+    "beforeBuildCommand": "",
+    "beforeDevCommand": "npm run dev",
+    "devPath": "http://127.0.0.1:1420",
+    "distDir": "../src",
+    "withGlobalTauri": true
+  },
+  "package": {
+    "productName": "Tickr",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "window": {
+        "all": true
+      }
+    },
+    "windows": [
+      {
+        "label": "main",
+        "title": "Tickr",
+        "width": 420,
+        "height": 248,
+        "minWidth": 420,
+        "minHeight": 180,
+        "resizable": false,
+        "fullscreen": false,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "skipTaskbar": false,
+        "visible": true,
+        "center": true,
+        "focus": true
+      }
+    ],
+    "bundle": {
+      "active": true,
+      "targets": [
+        "msi"
+      ],
+      "identifier": "com.tickr.app",
+      "icon": [
+        "icons/icon.png",
+        "icons/icon.ico"
+      ],
+      "windows": {
+        "nsis": {
+          "installerIcon": "icons/icon.ico"
+        }
+      }
+    },
+    "security": {
+      "csp": null
+    }
+  }
+}
