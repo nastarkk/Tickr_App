@@ -1,9 +1,6 @@
-﻿# Tickr_App
-A minimal desktop cross-platform ambient focus timer built with Tauri + Vanilla JS, featuring LCD-style command controls and break mode.
-=======
 # Tickr (Tauri)
 
-Minimal always-on-top desktop timer widget using Tauri + HTML/CSS/Vanilla JS.
+A minimal desktop cross-platform ambient focus timer built with Tauri + Vanilla JS, featuring LCD-style command controls and break mode.
 
 ## Run
 
@@ -53,6 +50,17 @@ npm run tauri build
 
 ## Screenshots
 
+### 1. Setup Window
+Enter your task, set timer duration, choose where the running widget should appear, and start the focus session.
+
 ![Setup Window](./docs/screenshots/setup-window.png)
+
+### 2. Running Window
+Compact always-on-top timer with LCD strip, countdown display, and visual urgency as time gets low.
+
 ![Running Window](./docs/screenshots/running-window.png)
+
+### 3. Command Input
+Click the moving LCD task text to open command mode and control the timer with quick commands.
+
 ![Command Input](./docs/screenshots/command-input.png)
