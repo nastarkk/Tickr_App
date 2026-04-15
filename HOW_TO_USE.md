@@ -1,0 +1,79 @@
+# Tickr - How To Use
+
+## What Tickr Does
+
+Tickr is a minimal floating focus timer.
+
+Flow:
+
+1. Open Tickr setup window.
+2. Enter task name.
+3. Enter duration (minutes).
+4. Choose running window placement.
+5. Click `:Start Focus Session/`.
+
+## Running Mode
+
+- The compact window starts counting down immediately.
+- Click the moving LCD task text to open command input.
+- Type a command and press `Enter`.
+
+## Screenshots
+
+Add screenshots in `docs/screenshots/` with these names:
+
+- `setup-window.png`
+- `running-window.png`
+- `command-input.png`
+
+They will render here automatically:
+
+![Setup Window](./docs/screenshots/setup-window.png)
+![Running Window](./docs/screenshots/running-window.png)
+![Command Input](./docs/screenshots/command-input.png)
+
+## Install Warning (Unsigned App)
+
+Tickr is currently distributed without code signing.
+On some Windows systems, you may see a SmartScreen warning during install.
+
+If prompted:
+
+1. Click `More info`
+2. Click `Run anyway`
+
+## Command List
+
+- `\PAUSE>`: Pause timer
+- `\RESUME>`: Resume timer
+- `\HALF>`: Set remaining time to half
+- `\RUSH>`: Jump remaining time to 15 seconds
+- `\BREAK N>`: Start break timer for N minutes
+- `\BACK>`: Return from break to saved focus session
+- `\RESET>`: Reset to original duration
+- `\RESTART>`: Restart from full duration and run
+- `\END>`: Close running window
+- `\+N>`: Add N minutes
+- `\-N>`: Subtract N minutes
+
+## Examples
+
+- `\BREAK 5>` starts a 5-minute break
+- `\+5>` adds 5 minutes
+- `\-3>` removes 3 minutes
+
+## Visual + Sound Feedback
+
+- Timer turns danger red in the final 15 seconds.
+- Tick sound plays each second in the final countdown.
+- At `00:00`, timer blinks red three times then returns to default.
+- During pause, LCD stream inserts `<TIMER PAUSED>` between task tokens.
+- If command is invalid, Tickr shows `<UNKNOWN CMD>` once, then returns to task stream.
+
+## Fonts and Licensing
+
+See `FONT_LICENSES.md` for attribution and licenses for bundled fonts.
+
+## Project License
+
+Tickr is open source under the MIT License. See `LICENSE`.
