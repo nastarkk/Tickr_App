@@ -1,4 +1,4 @@
-# Tickr
+﻿# Tickr
 
 A tiny, always-on desktop timer that lives on your screen.
 
@@ -111,7 +111,9 @@ https://github.com/nastarkk/Tickr_App/releases/tag/v0.1.0
 
 ## Demo Video
 
-[![Watch Tickr Demo](./assets/tickr%20thumbnail.jpg)](https://youtu.be/wF8oGSMCck8)
+<a href="https://youtu.be/wF8oGSMCck8" target="_blank" rel="noopener noreferrer">
+  <img src="./assets/tickr thumbnail.jpg" alt="Watch Tickr Demo" />
+</a>
 
 Watch on YouTube: https://youtu.be/wF8oGSMCck8
 
