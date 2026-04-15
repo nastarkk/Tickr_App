@@ -109,6 +109,14 @@ https://github.com/nastarkk/Tickr_App/releases/tag/v0.1.0
 
 ---
 
+## Demo Video
+
+[![Watch Tickr Demo](./assets/tickr%20thumbnail.jpg)](https://youtu.be/wF8oGSMCck8)
+
+Watch on YouTube: https://youtu.be/wF8oGSMCck8
+
+---
+
 ## Build
 
 ```bash
