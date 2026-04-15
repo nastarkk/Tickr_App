@@ -50,3 +50,9 @@ npm run tauri build
 - License: MIT (see `LICENSE`)
 - Contribution guide: `CONTRIBUTING.md`
 - Font attributions/licenses: `FONT_LICENSES.md`
+
+## Screenshots
+
+![Setup Window](./docs/screenshots/setup-window.png)
+![Running Window](./docs/screenshots/running-window.png)
+![Command Input](./docs/screenshots/command-input.png)
